@@ -1,0 +1,8 @@
+- react
+- vite
+- typescript
+- tailwindcss
+- shadcn
+- tanstack-query
+- tanstack-form
+- tanstack-table

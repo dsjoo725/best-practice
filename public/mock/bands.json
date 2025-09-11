@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "band_name": "Aurora",
+    "genre": "Rock",
+    "members": 4,
+    "created_at": "2024-03-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "band_name": "Nebula",
+    "genre": "Jazz",
+    "members": 5,
+    "created_at": "2023-12-12T00:00:00.000Z"
+  }
+]
