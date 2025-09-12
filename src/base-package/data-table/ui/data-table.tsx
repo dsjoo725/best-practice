@@ -1,46 +1,39 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import type { TableProps } from "../model/data-table.type";
-import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import {
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  useReactTable,
+  type ColumnDef,
+} from "@tanstack/react-table";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/base";
+import { useTableRows } from "../model/use-table-rows";
+
+type DataTableProps<TData, TValue> = {
+  rows?: TData[];
+  defaultRows?: TData[];
+  columns: ColumnDef<TData, TValue>[];
+  onRowsChange?: (updater: TData[] | ((prev: TData[]) => TData[])) => void;
+};
 
 export const DataTable = <TData extends Record<string, unknown>, TValue>({
-  rows,
+  rows: rowsProps,
+  defaultRows,
   columns,
   onRowsChange,
-  getRowId,
-}: TableProps<TData, TValue>) => {
-  const isControlled = Boolean(onRowsChange);
-  const [uncontrolledRows, setUncontrolledRows] = useState<TData[]>(() => rows);
-
-  useEffect(() => {
-    if (!isControlled) {
-      setUncontrolledRows(rows);
-    }
-  }, [rows, isControlled]);
-
-  const currentRows = isControlled ? rows : uncontrolledRows;
-
-  const updateRows = useCallback(
-    (updater: TData[] | ((prev: TData[]) => TData[])) => {
-      if (isControlled) {
-        onRowsChange?.(updater);
-      } else {
-        setUncontrolledRows(updater);
-      }
-    },
-    [isControlled, onRowsChange]
-  );
-
-  const memoColumns = useMemo(() => columns, [columns]);
-  const memoData = useMemo(() => currentRows, [currentRows]);
+}: DataTableProps<TData, TValue>) => {
+  const { rows, ...updater } = useTableRows<TData>({
+    rowsProps,
+    defaultRows,
+    onRowsChange,
+  });
 
   const table = useReactTable({
-    data: memoData,
-    columns: memoColumns,
+    data: rows,
+    columns: columns,
     getCoreRowModel: getCoreRowModel(),
-    getRowId,
+    getPaginationRowModel: getPaginationRowModel(),
     meta: {
-      updateRows,
+      ...updater,
     },
   });
 

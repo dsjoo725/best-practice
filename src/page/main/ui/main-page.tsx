@@ -1,6 +1,7 @@
 import { DataTable } from "@/base-package";
+import { InputCell } from "@/base-package/data-table/ui/input-cell";
 import type { ColumnDef } from "@tanstack/react-table";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type User = {
   id: number;
@@ -22,15 +23,27 @@ const columns: ColumnDef<User>[] = [
   {
     accessorKey: "email",
     header: "Email",
-    cell: (info) => info.getValue(),
+    cell: (props) => <InputCell {...props} />,
   },
 ];
 
 export const MainPage = () => {
-  const [rows, setRows] = useState<User[]>([
-    { id: 1, name: "Alice", email: "alice@test.com" },
-    { id: 2, name: "Bob", email: "bob@test.com" },
-  ]);
+  const [rows, setRows] = useState<User[]>([]);
+
+  console.log(rows);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const next: User[] = Array.from({ length: 100 }, (_, i) => ({
+        id: i + 1,
+        name: `User ${i + 1}`,
+        email: `user${i + 1}@test.com`,
+      }));
+      setRows(next);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="w-200 p-4">
