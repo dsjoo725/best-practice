@@ -1,11 +1,12 @@
-import { MainPage } from "@/page";
+import { RouterProvider } from "react-router-dom";
 
 import { QueryProvider } from "./provider/query-provider";
+import { router } from "./routes/router";
 
 export const App = () => {
   return (
     <QueryProvider>
-      <MainPage />
+      <RouterProvider router={router} />
     </QueryProvider>
   );
 };
