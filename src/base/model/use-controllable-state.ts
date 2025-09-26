@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useInsertionEffect, useRef, useState } from "react";
-
-type ChangeHandler<T> = (state: T) => void;
-type SetStateFn<T> = React.Dispatch<React.SetStateAction<T>>;
+import { isFunction, type ChangeHandler, type SetStateFn } from "./types";
 
 interface UseControllableStateParams<T> {
   prop?: T;
@@ -64,7 +62,3 @@ const useUncontrolledState = <T>({
 
   return [value, setValue, onChangeRef];
 };
-
-function isFunction(value: unknown) {
-  return typeof value === "function";
-}
