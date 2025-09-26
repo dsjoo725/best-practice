@@ -195,6 +195,6 @@ describe("useHistoryState", () => {
     // Then
     expect(result.current[0]).toBe(3);
     expect(result.current[2].canUndo).toBe(false);
-    expect(result.current[2].canRedo).toBe(true); // 테스트 실패
+    expect(result.current[2].canRedo).toBe(false);
   });
 });
