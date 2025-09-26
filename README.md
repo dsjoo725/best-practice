@@ -2,6 +2,7 @@
 - vite
 - typescript
 - tailwindcss
+- radix
 - shadcn
 - tanstack-query
 - tanstack-form
