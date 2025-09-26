@@ -1,5 +1,5 @@
-import { Checkbox } from "@radix-ui/react-checkbox";
-import type { CellContext, HeaderContext } from "@tanstack/react-table";
+import { Checkbox } from '@/base/ui/checkbox';
+import type { CellContext, HeaderContext } from '@tanstack/react-table';
 
 export const SelectCell = <TData, TValue>({ row }: CellContext<TData, TValue>) => {
   return (
@@ -18,7 +18,7 @@ export const SelectHeader = <TData, TValue>({ table }: HeaderContext<TData, TVal
     <div className="flex items-center justify-center">
       <Checkbox
         checked={
-          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
+          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate')
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"

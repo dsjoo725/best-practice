@@ -1,4 +1,4 @@
-import { useControllableState } from "@/base/model/use-controllable-state";
+import { useControllableState } from '@/base/model/use-controllable-state';
 
 type Props<TData> = {
   rowsProps?: TData[];
@@ -12,7 +12,7 @@ export const useTableRows = <TData>({ rowsProps, defaultRows, onRowsChange }: Pr
     onChange: onRowsChange,
   });
 
-  const updateCell = (rowIndex: number, columnKey: keyof TData, value: TData[keyof TData]) => {
+  const updateCell = (rowIndex: number, columnKey: string, value: unknown) => {
     setRows((prev) => {
       if (rowIndex < 0 || rowIndex >= prev.length) return prev;
       const next = prev.slice();

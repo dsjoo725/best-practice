@@ -1,10 +1,14 @@
-import { HomePage } from "@/page";
-import { createBrowserRouter, type RouteObject } from "react-router-dom";
+import { createBrowserRouter, type RouteObject } from 'react-router-dom';
+import { HomePage, SalesPage } from '@/page';
 
 const routes: RouteObject[] = [
   {
-    path: "/",
+    path: '/',
     element: <HomePage />,
+  },
+  {
+    path: '/sales',
+    element: <SalesPage />,
   },
 ];
 

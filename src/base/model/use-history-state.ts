@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { isFunction, type SetStateFn } from "./types";
+import { useCallback, useEffect, useState } from 'react';
+import { isFunction, type SetStateFn } from './types';
 
 interface useHistoryState<T> {
   history: T[];
@@ -44,7 +44,7 @@ export const useHistoryState = <T>({ defaultProp, capacity = 100 }: UseHistorySt
 
         return { history: next, index: next.length - 1 };
       }),
-    [capacity]
+    [capacity],
   );
 
   const undo = useCallback(
@@ -53,7 +53,7 @@ export const useHistoryState = <T>({ defaultProp, capacity = 100 }: UseHistorySt
         history,
         index: Math.max(0, index - 1),
       })),
-    []
+    [],
   );
 
   const redo = useCallback(
@@ -62,7 +62,7 @@ export const useHistoryState = <T>({ defaultProp, capacity = 100 }: UseHistorySt
         history,
         index: Math.min(history.length - 1, index + 1),
       })),
-    []
+    [],
   );
 
   const reset = useCallback(
@@ -71,7 +71,7 @@ export const useHistoryState = <T>({ defaultProp, capacity = 100 }: UseHistorySt
         history: [next ?? defaultProp],
         index: 0,
       }),
-    [defaultProp]
+    [defaultProp],
   );
 
   const canUndo = prop.index > 0;

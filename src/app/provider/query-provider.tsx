@@ -1,5 +1,5 @@
-import type { PropsWithChildren } from "react";
-import { MutationCache, QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import type { PropsWithChildren } from 'react';
+import { MutationCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export const QueryProvider = ({ children }: PropsWithChildren) => {
   const queryClient = new QueryClient({

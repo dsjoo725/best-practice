@@ -1,7 +1,7 @@
-import { RouterProvider } from "react-router-dom";
+import { RouterProvider } from 'react-router-dom';
 
-import { QueryProvider } from "./provider/query-provider";
-import { router } from "./routes/router";
+import { QueryProvider } from './provider/query-provider';
+import { router } from './routes/router';
 
 export const App = () => {
   return (
