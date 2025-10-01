@@ -9,6 +9,7 @@ export * from "./ui/select";
 export * from "./ui/sidebar";
 export * from "./ui/separator";
 export * from "./ui/breadcrumb";
+export * from "./ui/card";
 
 export * from "./model/use-controllable-state";
 
