@@ -1,6 +1,5 @@
-import { HomePage } from "@/page";
-import { PaymentPage } from "@/page/payment/ui/payment-page";
 import { createBrowserRouter, type RouteObject } from "react-router-dom";
+import { HomePage, SalesPage } from "@/page";
 
 const routes: RouteObject[] = [
   {
@@ -8,8 +7,8 @@ const routes: RouteObject[] = [
     element: <HomePage />,
   },
   {
-    path: "/payment",
-    element: <PaymentPage />,
+    path: "/sales",
+    element: <SalesPage />,
   },
 ];
 
