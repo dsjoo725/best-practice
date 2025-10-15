@@ -1,5 +1,5 @@
-import { createBrowserRouter, type RouteObject } from 'react-router-dom';
-import { HomePage, SalesPage } from '@/page';
+import { createBrowserRouter, type RouteObject } from "react-router-dom";
+import { HomePage, SalesPage } from "@/page";
 
 const routes: RouteObject[] = [
   {
@@ -7,7 +7,7 @@ const routes: RouteObject[] = [
     element: <HomePage />,
   },
   {
-    path: '/sales',
+    path: "/sales",
     element: <SalesPage />,
   },
 ];

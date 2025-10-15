@@ -4,11 +4,11 @@ import {
   getPaginationRowModel,
   useReactTable,
   type ColumnDef,
-} from '@tanstack/react-table';
-import { cn, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/base';
-import { useTableRows } from '../model/use-table-rows';
+} from "@tanstack/react-table";
+import { cn, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/base";
+import { useTableRows } from "../model/use-table-rows";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 type DataTableProps<TData, TValue> = {
   rows?: TData[];
@@ -58,9 +58,9 @@ export const DataTable = <TData extends Record<string, unknown>, TValue>({
               <TableHead
                 key={header.id}
                 className={cn(
-                  header.column.columnDef.meta?.align === 'center' && 'text-center',
-                  header.column.columnDef.meta?.align === 'right' && 'text-right',
-                  header.column.columnDef.meta?.align === 'left' && 'text-left',
+                  header.column.columnDef.meta?.align === "center" && "text-center",
+                  header.column.columnDef.meta?.align === "right" && "text-right",
+                  header.column.columnDef.meta?.align === "left" && "text-left"
                 )}
               >
                 {header.isPlaceholder
@@ -75,14 +75,14 @@ export const DataTable = <TData extends Record<string, unknown>, TValue>({
       <TableBody>
         {table.getRowModel().rows.length ? (
           table.getRowModel().rows.map((row) => (
-            <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+            <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
               {row.getVisibleCells().map((cell) => (
                 <TableCell
                   key={cell.id}
                   className={cn(
-                    cell.column.columnDef.meta?.align === 'center' && 'text-center',
-                    cell.column.columnDef.meta?.align === 'right' && 'text-right',
-                    cell.column.columnDef.meta?.align === 'left' && 'text-left',
+                    cell.column.columnDef.meta?.align === "center" && "text-center",
+                    cell.column.columnDef.meta?.align === "right" && "text-right",
+                    cell.column.columnDef.meta?.align === "left" && "text-left"
                   )}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
