@@ -4,7 +4,7 @@ export const HomePage = () => {
   return (
     <div>
       <h1>Home</h1>
-      <Link to="/sales">Sales</Link>
+      <Link to="/calendar">Calendar</Link>
     </div>
   );
 };
