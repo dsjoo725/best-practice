@@ -3,7 +3,7 @@ import { HomePage, SalesPage } from "@/page";
 
 const routes: RouteObject[] = [
   {
-    path: "/",
+    path: '/',
     element: <HomePage />,
   },
   {

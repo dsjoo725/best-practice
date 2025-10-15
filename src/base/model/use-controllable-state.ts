@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useInsertionEffect, useRef, useState } from "react";
-import { isFunction, type ChangeHandler, type SetStateFn } from "./types";
+import { useCallback, useEffect, useInsertionEffect, useRef, useState } from 'react';
+import { isFunction, type ChangeHandler, type SetStateFn } from './types';
 
 interface UseControllableStateParams<T> {
   prop?: T;
@@ -31,7 +31,7 @@ export const useControllableState = <T>({
         setUncontrolledProp(nextValue);
       }
     },
-    [isControlled, prop, setUncontrolledProp, onChangeRef]
+    [isControlled, prop, setUncontrolledProp, onChangeRef],
   );
 
   return [value, setValue];
@@ -40,10 +40,10 @@ export const useControllableState = <T>({
 const useUncontrolledState = <T>({
   defaultProp,
   onChange,
-}: Omit<UseControllableStateParams<T>, "prop">): [
+}: Omit<UseControllableStateParams<T>, 'prop'>): [
   value: T,
   setValue: React.Dispatch<React.SetStateAction<T>>,
-  onChangeRef: React.RefObject<ChangeHandler<T> | undefined>
+  onChangeRef: React.RefObject<ChangeHandler<T> | undefined>,
 ] => {
   const [value, setValue] = useState(defaultProp);
   const prevValueRef = useRef(value);

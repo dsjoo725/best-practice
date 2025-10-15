@@ -1,4 +1,4 @@
-import { useControllableState } from "@/base/model/use-controllable-state";
+import { useControllableState } from '@/base/model/use-controllable-state';
 
 type Props<TData> = {
   rowsProps?: TData[];

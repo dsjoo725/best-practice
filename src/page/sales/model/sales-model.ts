@@ -1,4 +1,4 @@
-import type { OrderType, PaymentMethod, SalesStatus } from "./sales-enums";
+import type { OrderType, PaymentMethod, SalesStatus } from './sales-enums';
 
 export type SalesTransaction = {
   id: number;
