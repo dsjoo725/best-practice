@@ -22,7 +22,7 @@ export const DataTable = <TData extends Record<string, unknown>, TValue>({
   rows: rowsProps,
   defaultRows,
   columns,
-  emptyMessage = '표시할 항목이 없어요',
+  emptyMessage = '표시할 항목이 없어요.',
   onRowsChange,
 }: DataTableProps<TData, TValue>) => {
   const { rows, ...updater } = useTableRows<TData>({
