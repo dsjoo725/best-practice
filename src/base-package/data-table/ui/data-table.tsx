@@ -14,6 +14,7 @@ type DataTableProps<TData, TValue> = {
   rows?: TData[];
   defaultRows?: TData[];
   columns: ColumnDef<TData, TValue>[];
+  emptyMessage?: string;
   onRowsChange?: (updater: TData[] | ((prev: TData[]) => TData[])) => void;
 };
 
@@ -21,6 +22,7 @@ export const DataTable = <TData extends Record<string, unknown>, TValue>({
   rows: rowsProps,
   defaultRows,
   columns,
+  emptyMessage = '표시할 항목이 없어요',
   onRowsChange,
 }: DataTableProps<TData, TValue>) => {
   const { rows, ...updater } = useTableRows<TData>({
@@ -93,7 +95,7 @@ export const DataTable = <TData extends Record<string, unknown>, TValue>({
         ) : (
           <TableRow>
             <TableCell colSpan={table.getAllLeafColumns().length} className="h-24 text-center">
-              No results.
+              {emptyMessage}
             </TableCell>
           </TableRow>
         )}
