@@ -1,6 +1,6 @@
 import type { ColumnDef } from '@tanstack/react-table';
 
-import { DataTable, SelectCell, SelectHeader } from '@/base-package';
+import { DataTable, SelectCell, SelectHeader } from '@/base-package/data-table';
 import { SALES_TRANSACTION_DATA } from '../model/sales-data';
 import type { SalesTransaction } from '../model/sales-model';
 import {
