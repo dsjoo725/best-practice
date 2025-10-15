@@ -12,12 +12,10 @@ export const useTableRows = <TData>({ rowsProps, defaultRows, onRowsChange }: Pr
     onChange: onRowsChange,
   });
 
-  const updateCell = (rowIndex: number, columnKey: string, value: unknown) => {
+  const updateCell = (rowIndex: number, columnId: string, value: unknown) => {
     setRows((prev) => {
       if (rowIndex < 0 || rowIndex >= prev.length) return prev;
-      const next = prev.slice();
-      next[rowIndex] = { ...prev[rowIndex], [columnKey]: value };
-      return next;
+      return prev.map((row, i) => (i === rowIndex ? { ...row, [columnId]: value } : row));
     });
   };
 

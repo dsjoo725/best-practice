@@ -15,3 +15,6 @@ export * from './ui/checkbox';
 export * from './model/use-controllable-state';
 
 export * from './lib/utils';
+
+export * from './enum/order';
+export * from './enum/payment';

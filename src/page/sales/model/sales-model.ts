@@ -1,4 +1,4 @@
-import type { OrderType, PaymentMethod, SalesStatus } from './sales-enums';
+import type { OrderType, PaymentMethod, PaymentStatus } from '@/base';
 
 export type SalesTransaction = {
   id: number;
@@ -6,7 +6,7 @@ export type SalesTransaction = {
   receiptNo: string;
   paymentMethod: PaymentMethod;
   orderType: OrderType;
-  status: SalesStatus;
+  status: PaymentStatus;
   deviceId: string;
   deviceName: string;
   saleAmount: number;

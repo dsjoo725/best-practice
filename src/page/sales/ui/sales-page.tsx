@@ -6,11 +6,11 @@ import type { SalesTransaction } from '../model/sales-model';
 import {
   ORDER_TYPE_LABELS,
   PAYMENT_METHOD_LABELS,
-  SALES_STATUS_LABELS,
+  PAYMENT_STATUS_LABELS,
   type OrderType,
   type PaymentMethod,
-  type SalesStatus,
-} from '../model/sales-enums';
+  type PaymentStatus,
+} from '@/base';
 
 const SALES_COLUMNS: ColumnDef<SalesTransaction>[] = [
   {
@@ -39,7 +39,7 @@ const SALES_COLUMNS: ColumnDef<SalesTransaction>[] = [
   {
     accessorKey: 'status',
     header: '상태',
-    cell: (info) => SALES_STATUS_LABELS[info.getValue<SalesStatus>()],
+    cell: (info) => PAYMENT_STATUS_LABELS[info.getValue<PaymentStatus>()],
   },
   {
     accessorKey: 'deviceId',

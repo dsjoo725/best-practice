@@ -77,7 +77,7 @@ export const SALES_TRANSACTION_DATA: SalesTransaction[] = [
     receiptNo: 'R20251010006',
     paymentMethod: 'CARD',
     orderType: 'IN_STORE',
-    status: 'CANCELED',
+    status: 'CANCELLED',
     deviceId: 'POS-MAGOK',
     deviceName: '마곡점 POS',
     saleAmount: -33000,
