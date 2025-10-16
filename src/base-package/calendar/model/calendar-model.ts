@@ -1,4 +1,4 @@
-export type DayCell = {
+export type CalendarDay = {
   date: Date;
   inMonth: boolean;
   isToday: boolean;
@@ -6,6 +6,6 @@ export type DayCell = {
   isSaturday: boolean;
 };
 
-type WeekRow = DayCell[];
+export type CalendarWeek = CalendarDay[];
 
-export type CalendarGrid = WeekRow[];
+export type CalendarWeeks = CalendarWeek[];
