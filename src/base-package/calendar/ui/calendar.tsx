@@ -1,53 +1,40 @@
-import { useMemo, useState, type ReactNode } from 'react';
+import { useMemo } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
 import { Button, cn } from '@/base';
 
-import { addMonths, formatYearMonth, startOfDay } from '../lib/day-utils';
-import { getMonthMatrix } from '../lib/get-month-matrix';
+import { getCalendarGrid } from '../lib/get-calendar-grid';
 
-type Props = {
-  renderCellContent?: (date: Date) => ReactNode;
-};
-export const Calendar = ({ renderCellContent }: Props) => {
-  const [selectedDate, setSelectedDate] = useState(() => startOfDay(new Date()));
+type CalendarProps = { year: number; month: number; onPrev: () => void; onNext: () => void };
 
-  const year = selectedDate.getFullYear();
-  const month = selectedDate.getMonth();
-
-  const weeks = useMemo(() => getMonthMatrix(year, month), [year, month]);
-
-  const go = (delta: number) => setSelectedDate((v) => addMonths(v, delta));
+export const Calendar = ({ year, month, onPrev, onNext }: CalendarProps) => {
+  const weeks = useMemo(() => getCalendarGrid(year, month), [year, month]);
 
   return (
     <section className="flex flex-col gap-2" aria-label="calendar">
       <header className="flex items-center justify-center gap-1">
-        <Button variant="outline" size="icon" aria-label="prev-month" onClick={() => go(-1)}>
+        <Button variant="outline" size="icon" aria-label="prev-month" onClick={onPrev}>
           <ChevronLeftIcon />
         </Button>
 
         <h2 id="calendar-heading" className="min-w-40 text-center font-semibold">
-          {formatYearMonth(new Date(year, month, 1))}
+          {`${year}년 ${month}월`}
         </h2>
 
-        <Button variant="outline" size="icon" aria-label="next-month" onClick={() => go(1)}>
+        <Button variant="outline" size="icon" aria-label="next-month" onClick={onNext}>
           <ChevronRightIcon />
         </Button>
       </header>
 
       <main>
-        <div
-          role="grid"
-          aria-labelledby="calendar-heading"
-          className="border text-sm font-medium select-none"
-        >
-          <div role="row" className="grid grid-cols-7 border-b">
+        <div role="grid" aria-labelledby="calendar-heading" className="border select-none">
+          <div role="row" className="grid grid-cols-7 border-b text-sm font-medium">
             {['일', '월', '화', '수', '목', '금', '토'].map((d, i) => (
               <div
                 key={d}
                 role="columnheader"
                 className={cn(
-                  'h-6 border-r text-center font-medium last:border-r-0',
+                  'border-r px-2 py-0.5 text-center font-medium last:border-r-0',
                   i === 0 && 'text-red-500',
                   i === 6 && 'text-blue-500',
                 )}
@@ -58,33 +45,24 @@ export const Calendar = ({ renderCellContent }: Props) => {
           </div>
 
           {weeks.map((week, wi) => (
-            <div key={wi} role="row" className="grid grid-cols-7 border-b last:border-b-0">
+            <div key={wi} role="row" className="grid grid-cols-7 border-b text-sm last:border-b-0">
               {week.map(({ date, inMonth, isToday }, di) => {
-                const content = renderCellContent?.(date);
-                const isContent = Boolean(content);
-
                 return (
                   <div
                     key={di}
                     role="gridcell"
                     aria-current={isToday ? 'date' : undefined}
-                    className={cn(
-                      'border-r text-sm last:border-r-0',
-                      inMonth ? 'text-foreground' : 'text-muted-foreground',
-                    )}
+                    className={cn('border-r px-2 py-0.5 last:border-r-0')}
                   >
                     <div
                       className={cn(
-                        'flex h-6 items-center px-2',
-                        isContent && 'bg-secondary',
-                        isToday && isContent && 'bg-primary/20',
                         di === 0 && 'text-red-500',
                         di === 6 && 'text-blue-500',
+                        !inMonth && 'opacity-40',
                       )}
                     >
                       {date.getDate()}
                     </div>
-                    <div className="min-h-30">{content}</div>
                   </div>
                 );
               })}
