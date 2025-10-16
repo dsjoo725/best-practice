@@ -7,7 +7,8 @@ export const getCalendarWeeks = (month: Date): CalendarWeeks => {
   const firstDay = new Date(month.getFullYear(), month.getMonth(), 1).getDay();
   const leading = (firstDay - weekStartsOn + 7) % 7;
   const inMonthDays = daysInMonth(month);
-  const total = Math.ceil((leading + inMonthDays) / 7) * 7;
+  // const total = Math.ceil((leading + inMonthDays) / 7) * 7;
+  const total = 42;
 
   const today = new Date();
 

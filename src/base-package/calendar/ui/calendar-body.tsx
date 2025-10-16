@@ -8,9 +8,19 @@ type Props = {
 };
 export const CalendarBody = ({ weeks, renderDay }: Props) => {
   return (
-    <main>
-      <div role="grid" aria-labelledby="calendar-heading" className="border select-none">
-        <div role="row" className="grid grid-cols-7 border-b text-sm font-medium">
+    <main className="flex-1 overflow-hidden">
+      <div
+        role="grid"
+        aria-labelledby="calendar-heading"
+        className="flex h-full flex-col overflow-auto rounded-sm border select-none"
+      >
+        <div
+          role="row"
+          className={cn(
+            'grid grid-cols-7 border-b text-sm font-medium',
+            'bg-background sticky top-0 z-10',
+          )}
+        >
           {['일', '월', '화', '수', '목', '금', '토'].map((d, i) => (
             <div
               key={d}
@@ -30,7 +40,7 @@ export const CalendarBody = ({ weeks, renderDay }: Props) => {
           <div
             key={rowIndex}
             role="row"
-            className="grid grid-cols-7 border-b text-sm last:border-b-0"
+            className="grid flex-1 grid-cols-7 border-b text-sm last:border-b-0"
           >
             {week.map((day, cellIndex) => {
               const { date, isToday, inMonth, isSaturday, isSunday } = day;

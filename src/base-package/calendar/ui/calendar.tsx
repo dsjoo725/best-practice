@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from 'react';
 
-import { useControllableState } from '@/base';
+import { cn, useControllableState } from '@/base';
 
 import { getCalendarWeeks } from '../lib/get-calendar-weeks';
 import { addMonths } from '../lib/date-utils';
@@ -10,6 +10,8 @@ import { CalendarHeader } from './calendar-header';
 import { CalendarBody } from './calendar-body';
 
 type CalendarProps = {
+  className?: string;
+
   month?: Date;
   defaultMonth?: Date;
   onMonthChange?: (updater: Date | ((prev: Date) => Date)) => void;
@@ -18,6 +20,7 @@ type CalendarProps = {
 };
 
 export const Calendar = ({
+  className,
   month: monthProps,
   defaultMonth,
   onMonthChange,
@@ -32,7 +35,7 @@ export const Calendar = ({
   const weeks = useMemo(() => getCalendarWeeks(month), [month]);
 
   return (
-    <section className="flex flex-col gap-2" aria-label="calendar">
+    <section className={cn('flex flex-col gap-2', className)} aria-label="calendar">
       <CalendarHeader
         month={month}
         onNext={() => setMonth((prev) => addMonths(prev, 1))}
