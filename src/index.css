@@ -48,8 +48,8 @@
 
 @layer utilities {
   .text-ss {
-    font-size: var(--text-s);
-    line-height: var(--text-s-line-height);
+    font-size: var(--text-ss);
+    line-height: var(--text-ss-line-height);
   }
 }
 
