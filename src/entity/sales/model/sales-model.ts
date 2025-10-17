@@ -5,3 +5,11 @@ export type DailySalesSummary = {
   orderCount: number;
   changeRate?: number;
 };
+
+export type GoodsSales = {
+  goodsId: string;
+  goodsName: string;
+  quantity: number;
+  unitPrice: number;
+  salesAmount: number;
+};

@@ -8,6 +8,8 @@ import type { DailySalesSummary } from '../model/sales-model';
 
 type Props = {
   summary?: DailySalesSummary;
+  selected?: boolean;
+  onClick: () => void;
 } & CalendarDay;
 
 export const DailySalesSummaryCell = ({
@@ -17,15 +19,21 @@ export const DailySalesSummaryCell = ({
   isSunday,
   isToday,
   summary,
+  selected,
+  onClick,
 }: Props) => {
   const hasSummary = !!summary;
   return (
-    <div className={cn('flex h-full flex-col', !inMonth && 'opacity-50')}>
+    <div
+      className={cn('flex h-full flex-col', !inMonth && 'opacity-50', selected && 'bg-primary/15')}
+      onClick={onClick}
+    >
       <div
         className={cn(
           'flex justify-between px-1 py-0.5',
           hasSummary && 'bg-accent',
           hasSummary && isToday && 'bg-primary-foreground',
+          hasSummary && selected && 'bg-primary/15',
         )}
       >
         <span
