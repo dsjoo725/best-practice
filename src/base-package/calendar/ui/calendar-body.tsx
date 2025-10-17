@@ -1,6 +1,6 @@
-import { cn } from '@/base';
-import type { CalendarDay, CalendarWeeks } from '../model/calendar-model';
 import type { ReactNode } from 'react';
+import { cn } from '@/base/lib/utils';
+import type { CalendarDay, CalendarWeeks } from '../model/calendar-model';
 
 type Props = {
   weeks: CalendarWeeks;
@@ -12,7 +12,7 @@ export const CalendarBody = ({ weeks, renderDay }: Props) => {
       <div
         role="grid"
         aria-labelledby="calendar-heading"
-        className="flex h-full flex-col overflow-auto rounded-sm border select-none"
+        className="flex h-full flex-col overflow-auto rounded-sm border"
       >
         <div
           role="row"
@@ -26,7 +26,7 @@ export const CalendarBody = ({ weeks, renderDay }: Props) => {
               key={d}
               role="columnheader"
               className={cn(
-                'border-r px-2 py-0.5 text-center font-medium last:border-r-0',
+                'border-r px-2 py-1 text-center font-medium last:border-r-0',
                 i === 0 && 'text-red-600',
                 i === 6 && 'text-blue-600',
               )}
@@ -50,13 +50,14 @@ export const CalendarBody = ({ weeks, renderDay }: Props) => {
                   key={cellIndex}
                   role="gridcell"
                   aria-current={isToday ? 'date' : undefined}
-                  className={cn('border-r px-2 py-0.5 last:border-r-0')}
+                  className={cn('border-r last:border-r-0')}
                 >
                   {renderDay ? (
                     renderDay(day)
                   ) : (
                     <div
                       className={cn(
+                        'px-2 py-1',
                         isSunday && 'text-red-600',
                         isSaturday && 'text-blue-600',
                         !inMonth && 'opacity-40',

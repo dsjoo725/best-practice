@@ -1,6 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
-import { Button } from '@/base';
+import { Button } from '@/base/ui/button';
 
 import { formatYearMonth } from '../lib/date-utils';
 
@@ -16,7 +16,7 @@ export const CalendarHeader = ({ month, onPrev, onNext }: Props) => {
         <ChevronLeftIcon />
       </Button>
 
-      <h2 id="calendar-heading" className="min-w-40 text-center font-semibold">
+      <h2 id="calendar-heading" className="min-w-30 text-center font-medium">
         {formatYearMonth(month)}
       </h2>
 

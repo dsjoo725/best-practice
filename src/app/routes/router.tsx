@@ -1,5 +1,7 @@
 import { createBrowserRouter, type RouteObject } from 'react-router-dom';
-import { CalendarPage, HomePage } from '@/page';
+
+import { CalendarPage } from '@/page/calendar';
+import { HomePage } from '@/page/home';
 
 const routes: RouteObject[] = [
   {

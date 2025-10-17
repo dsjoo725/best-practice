@@ -5,10 +5,12 @@ import {
   useReactTable,
   type ColumnDef,
 } from '@tanstack/react-table';
-import { cn, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/base';
-import { useTableRows } from '../model/use-table-rows';
-
 import { useState } from 'react';
+
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/base/ui/table';
+import { cn } from '@/base/lib/utils';
+
+import { useTableRows } from '../model/use-table-rows';
 
 type DataTableProps<TData, TValue> = {
   rows?: TData[];
