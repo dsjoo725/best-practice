@@ -7,6 +7,7 @@ import {
   DailySalesSummaryCellSkeleton,
   type DailySalesSummary,
 } from '@/entity/sales';
+import { ThemeToggle } from '@/base/ui/theme-toggle';
 
 export const CalendarPage = () => {
   const [summaryList, setSummaryList] = useState<DailySalesSummary[]>();
@@ -22,6 +23,9 @@ export const CalendarPage = () => {
 
   return (
     <div className="p-4">
+      <div>
+        <ThemeToggle />
+      </div>
       <Calendar
         className="h-130 w-220"
         renderDay={(props) => {

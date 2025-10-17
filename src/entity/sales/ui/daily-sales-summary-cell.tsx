@@ -57,7 +57,7 @@ const ChangeRateBadge = ({ rate }: { rate?: number }) => {
 
   if (rate > 0) {
     return (
-      <Badge className="bg-white" variant="outline">
+      <Badge className="bg-background" variant="outline">
         <TrendingUp />+{rate}%
       </Badge>
     );
@@ -65,7 +65,7 @@ const ChangeRateBadge = ({ rate }: { rate?: number }) => {
 
   if (rate < 0) {
     return (
-      <Badge className="bg-white" variant="outline">
+      <Badge className="bg-background" variant="outline">
         <TrendingDown />
         {rate}%
       </Badge>
