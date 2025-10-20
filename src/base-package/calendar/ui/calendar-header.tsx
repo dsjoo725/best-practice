@@ -1,6 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
-import { Button } from '@/base/ui/button';
+import { Button } from '@/base/ui';
 
 import { formatYearMonth } from '../lib/date-utils';
 

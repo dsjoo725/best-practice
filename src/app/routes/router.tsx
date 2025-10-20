@@ -1,6 +1,6 @@
 import { createBrowserRouter, type RouteObject } from 'react-router-dom';
 
-import { CalendarPage } from '@/page/calendar';
+import { MyCalendarPage } from '@/page/my-calendar';
 import { HomePage } from '@/page/home';
 
 const routes: RouteObject[] = [
@@ -9,8 +9,8 @@ const routes: RouteObject[] = [
     element: <HomePage />,
   },
   {
-    path: '/calendar',
-    element: <CalendarPage />,
+    path: '/my-calendar',
+    element: <MyCalendarPage />,
   },
 ];
 

@@ -16,17 +16,14 @@ export const CalendarBody = ({ weeks, renderDay }: Props) => {
       >
         <div
           role="row"
-          className={cn(
-            'grid grid-cols-7 border-b text-sm font-medium',
-            'bg-background sticky top-0 z-10',
-          )}
+          className={cn('grid grid-cols-7 border-b', 'bg-background sticky top-0 z-10')}
         >
           {['일', '월', '화', '수', '목', '금', '토'].map((d, i) => (
             <div
               key={d}
               role="columnheader"
               className={cn(
-                'border-r px-2 py-1 text-center font-medium last:border-r-0',
+                'border-r px-2 py-1 text-center text-sm last:border-r-0',
                 i === 0 && 'text-red-600',
                 i === 6 && 'text-blue-600',
               )}

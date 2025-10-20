@@ -8,12 +8,23 @@ import { PanelLeftIcon } from 'lucide-react';
 
 import { useIsMobile } from '@/base/model/use-mobile';
 import { cn } from '@/base/lib/utils';
-import { Button } from '@/base/ui/button';
-import { Input } from '@/base/ui/input';
-import { Separator } from '@/base/ui/separator';
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/base/ui/sheet';
-import { Skeleton } from '@/base/ui/skeleton';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/base/ui/tooltip';
+import { Button } from '@/base/ui/primitive/button';
+import { Input } from '@/base/ui/primitive/input';
+import { Separator } from '@/base/ui/primitive/separator';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from '@/base/ui/primitive/sheet';
+import { Skeleton } from '@/base/ui/primitive/skeleton';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/base/ui/primitive/tooltip';
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;

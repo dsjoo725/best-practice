@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-table';
 import { useState } from 'react';
 
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/base/ui/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/base/ui';
 import { cn } from '@/base/lib/utils';
 
 import { useTableRows } from '../model/use-table-rows';

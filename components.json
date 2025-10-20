@@ -14,7 +14,7 @@
   "aliases": {
     "components": "@/base/ui",
     "utils": "@/base/lib/utils",
-    "ui": "@/base/ui",
+    "ui": "@/base/ui/primitive",
     "lib": "@/base/lib",
     "hooks": "@/base/model"
   },
